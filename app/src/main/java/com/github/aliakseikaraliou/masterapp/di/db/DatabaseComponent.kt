@@ -1,8 +1,8 @@
 package com.github.aliakseikaraliou.masterapp.di.db
 
 import com.github.aliakseikaraliou.masterapp.di.ComponentNotInitializedException
-import com.github.aliakseikaraliou.masterapp.di.context.ContextComponent
 import com.github.aliakseikaraliou.masterapp.di.context.ContextProvider
+import com.github.aliakseikaraliou.masterapp.di.db.provider.DatabaseProvider
 import dagger.Component
 import javax.inject.Singleton
 
@@ -14,18 +14,18 @@ import javax.inject.Singleton
 interface DatabaseComponent : DatabaseProvider {
 
     companion object {
+
         private var databaseComponent: DatabaseComponent? = null
 
-        fun create(contextProvider: ContextProvider): DatabaseComponent {
+        fun create(contextProvider: ContextProvider) {
             databaseComponent = DaggerDatabaseComponent.builder()
                 .contextProvider(contextProvider)
                 .build()
-
-            return databaseComponent
-                ?: throw ComponentNotInitializedException(ContextComponent::class)
         }
 
-        fun get() =
-            databaseComponent ?: throw ComponentNotInitializedException(ContextComponent::class)
+        val INSTANCE: DatabaseComponent
+            get() = databaseComponent
+                ?: throw ComponentNotInitializedException(DatabaseComponent::class)
+
     }
 }

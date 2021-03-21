@@ -22,13 +22,10 @@ interface ContextComponent : ContextProvider {
     companion object {
         private var contextComponent: ContextComponent? = null
 
-        fun create(context: Context): ContextComponent {
+        fun create(context: Context) {
             contextComponent = DaggerContextComponent.builder()
                 .context(context)
                 .build()
-
-            return contextComponent
-                ?: throw ComponentNotInitializedException(ContextComponent::class)
         }
 
         val INSTANCE: ContextComponent
