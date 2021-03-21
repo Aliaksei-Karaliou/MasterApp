@@ -1,6 +1,7 @@
 package com.github.aliakseikaraliou.masterapp.di.repo
 
 import com.github.aliakseikaraliou.masterapp.di.ComponentNotInitializedException
+import com.github.aliakseikaraliou.masterapp.di.db.provider.ClientDaoProvider
 import com.github.aliakseikaraliou.masterapp.di.db.provider.DatabaseProvider
 import com.github.aliakseikaraliou.masterapp.di.repo.provider.ClientRepositoryProvider
 import dagger.Component

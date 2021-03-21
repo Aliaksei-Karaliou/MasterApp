@@ -2,6 +2,7 @@ package com.github.aliakseikaraliou.masterapp.di.db
 
 import com.github.aliakseikaraliou.masterapp.di.ComponentNotInitializedException
 import com.github.aliakseikaraliou.masterapp.di.context.ContextProvider
+import com.github.aliakseikaraliou.masterapp.di.db.provider.ClientDaoProvider
 import com.github.aliakseikaraliou.masterapp.di.db.provider.DatabaseProvider
 import dagger.Component
 import javax.inject.Singleton

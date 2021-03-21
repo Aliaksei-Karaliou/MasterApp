@@ -8,11 +8,12 @@ import com.github.aliakseikaraliou.masterapp.db.entity.ClientEntity
 
 @Dao
 interface ClientDao {
-    @Query("SELECT * FROM client")
-    fun getAll(): List<ClientEntity>
 
-    @Insert
-    fun insert(client: ClientEntity)
+    @Query("SELECT * FROM client")
+    fun selectAll(): List<ClientEntity>
+
+    @Insert()
+    fun insert(client: ClientEntity): Long
 
     @Delete
     fun delete(client: ClientEntity)
